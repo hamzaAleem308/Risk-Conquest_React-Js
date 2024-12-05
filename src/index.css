@@ -1,0 +1,17 @@
+body {
+  font-family: "poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* background-image: url(./Components/Assets/formimage.webp); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+*{
+  margin: 0;
+  padding:0%;
+  box-sizing: border-box;
+}

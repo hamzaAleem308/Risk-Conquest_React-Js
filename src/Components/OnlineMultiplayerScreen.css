@@ -1,0 +1,155 @@
+.online-multiplayer-screen {
+    background: linear-gradient( #4b00ae, #722bff);
+    min-height: 100vh;
+    min-width: 500vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 20px;
+  }
+  
+  .back-button, .emoji-button {
+    position: absolute;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  
+  .back-button {
+    left: 20px;
+  }
+  
+  .emoji-button {
+    right: 20px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .character-image {
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+  
+  .create-game-button {
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 30px;
+  }
+  
+  .create-game-button:hover {
+    background-color: #FF1493;
+  }
+  
+  .bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .friends-button, .join-game-button {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .friends-button:hover, .join-game-button:hover {
+    background-color: #FF8C00;
+  }
+  
+  .join-game-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .game-id-input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-content button.selected {
+    background-color: #4A00E0;
+    color: white;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .modal-actions button {
+    width: 45%;
+  }
+  
+  @media (max-width: 600px) {
+    .bottom-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .friends-button, .join-game-container {
+      margin-bottom: 15px;
+    }
+  }

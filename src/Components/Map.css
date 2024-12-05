@@ -1,0 +1,395 @@
+/* Map.css */
+
+/* General Styles */
+.map-container {
+  position: relative;
+  width: 100vw; /* full viewport width */
+  height: 100vh; /* full viewport height */
+  background-size: cover; /* makes the background cover the entire container */
+  background-position: center; /* centers the image */
+  background-repeat: no-repeat;
+  background-color: aliceblue;
+}
+
+/* Base style for all regions */
+.map-container div {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent background */
+  border: 0px solid #333; /* subtle border */
+}
+
+.map-container div:hover {
+  transform: scale(1.05);
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5); /* brighter on hover */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Selected Territory Highlight */
+.map-container .selected {
+  border: 2px solid yellow;
+}
+
+/* Territory Positions and Sizes */
+/* Updated class names to match the ones used in Map.js */
+
+.Brazil {
+  top: 368px;
+  left: 495px;
+  width: 150px;
+  height: 200px;
+}
+
+.Greenland {
+  top: 30px;
+  left: 553px;
+  width: 120px;
+  height: 120px;
+}
+
+.Iceland {
+  top: 113px;
+  left: 658px;
+  width: 67px;
+  height: 80px;
+}
+
+.GreatBritain {
+  top: 160px;
+  left: 640px;
+  width: 60px;
+  height: 80px;
+}
+
+.Scandinavia {
+  top: 97px;
+  left: 733px;
+  width: 80px;
+  height: 90px;
+}
+
+.Ukraine {
+  top: 97px;
+  left: 790px;
+  width: 130px;
+  height: 90px;
+}
+
+.Siberia {
+  top: 40px;
+  left: 932px;
+  width: 110px;
+  height: 90px;
+}
+
+.Yakutsk {
+  top: 46px;
+  left: 1005px;
+  width: 110px;
+  height: 90px;
+}
+
+.Kamchatka {
+  top: 70px;
+  left: 1070px;
+  width: 128px;
+  height: 90px;
+}
+
+.Irkutsk {
+  top: 127px;
+  left: 1005px;
+  width: 100px;
+  height: 90px;
+}
+
+.Ural {
+  top: 70px;
+  left: 912px;
+  width: 78px;
+  height: 90px;
+}
+
+.Afghanistan {
+  top: 196px;
+  left: 872px;
+  width: 103px;
+  height: 90px;
+}
+
+.MiddleEast {
+  top: 292px;
+  left: 796px;
+  width: 143px;
+  height: 90px;
+}
+
+.India {
+  top: 283px;
+  left: 928px;
+  width: 105px;
+  height: 90px;
+}
+
+.Siam {
+  top: 328px;
+  left: 1016px;
+  width: 80px;
+  height: 90px;
+}
+
+.Indonesia {
+  top: 430px;
+  left: 1016px;
+  width: 100px;
+  height: 90px;
+}
+
+.NewGuinea {
+  top: 410px;
+  left: 1116px;
+  width: 100px;
+  height: 90px;
+}
+
+.EasternAustralia {
+  top: 495px;
+  left: 1130px;
+  width: 100px;
+  height: 90px;
+}
+
+.WesternAustralia {
+  top: 505px;
+  left: 1050px;
+  width: 130px;
+  height: 90px;
+}
+
+.China {
+  top: 215px;
+  left: 959px;
+  width: 150px;
+  height: 90px;
+}
+
+.Mongolia {
+  top: 180px;
+  left: 1010px;
+  width: 114px;
+  height: 90px;
+}
+
+.Japan {
+  top: 180px;
+  left: 1140px;
+  width: 60px;
+  height: 90px;
+}
+
+.NorthernEurope {
+  top: 180px;
+  left: 719px;
+  width: 90px;
+  height: 90px;
+}
+
+.WesternEurope {
+  top: 240px;
+  left: 660px;
+  width: 85px;
+  height: 90px;
+}
+
+.SouthernEurope {
+  top: 238px;
+  left: 724px;
+  width: 95px;
+  height: 90px;
+}
+
+.Egypt {
+  top: 352px;
+  left: 754px;
+  width: 95px;
+  height: 90px;
+}
+
+.EastAfrica {
+  top: 400px;
+  left: 795px;
+  width: 100px;
+  height: 90px;
+}
+
+.Argentina {
+  top: 458px;
+  left: 512px;
+  width: 70px;
+  height: 70px;
+}
+
+.SouthAfrica {
+  top: 495px;
+  left: 758px;
+  width: 100px;
+  height: 100px;
+}
+
+.Congo {
+  top: 437px;
+  left: 750px;
+  width: 94px;
+  height: 85px;
+}
+
+.Madagascar {
+  top: 500px;
+  left: 870px;
+  width: 70px;
+  height: 85px;
+}
+
+.NorthAfrica {
+  top: 340px;
+  left: 680px;
+  width: 120px;
+  height: 120px;
+}
+
+.Peru {
+  top: 380px;
+  left: 470px;
+  width: 110px;
+  height: 110px;
+}
+
+.Alaska {
+  top: 75px;
+  left: 320px;
+  width: 100px;
+  height: 100px;
+}
+
+.NorthwestTerritory {
+  top: 70px;
+  left: 398px;
+  width: 145px;
+  height: 150px;
+}
+
+.Venezuela {
+  top: 344px;
+  left: 482px;
+  width: 100px;
+  height: 100px;
+}
+
+.Alberta {
+  top: 130px;
+  left: 405px;
+  width: 78px;
+  height: 80px;
+}
+
+.Ontario {
+  top: 132px;
+  left: 478px;
+  width: 70px;
+  height: 80px;
+}
+
+.Quebec {
+  top: 125px;
+  left: 530px;
+  width: 78px;
+  height: 80px;
+}
+
+.WesternUnitedStates {
+  top: 193px;
+  left: 410px;
+  width: 83px;
+  height: 80px;
+}
+
+.EasternUnitedStates {
+  top: 190px;
+  left: 457px;
+  width: 130px;
+  height: 80px;
+}
+
+.CentralAmerica {
+  top: 259px;
+  left: 414px;
+  width: 85px;
+  height: 80px;
+}
+
+/* Players Section */
+.players-section {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background: rgb(255, 166, 0);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.player-details p {
+  margin: 0;
+  font-size: 12px;
+}
+
+/* Fortify Phase */
+.fortify-phase {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Territory Info Overlay */
+.territory-info {
+  position: absolute;
+  top: 50%; /* Adjust based on the image */
+  left: 50%; /* Adjust based on the image */
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+  pointer-events: none;
+}
+
+/* Image Hover Effect */
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 255, 0, 0.5);
+  border-color: aliceblue;
+  border-width: 2px;
+}

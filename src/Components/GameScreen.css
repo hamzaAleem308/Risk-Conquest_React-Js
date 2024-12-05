@@ -1,0 +1,74 @@
+/* GameScreen.css */
+
+.game-screen {
+    text-align: center;
+    background: radial-gradient(circle, #4a00e0, #8e2de2);
+    height: 100vh;
+    width: 100vw;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .characters {
+    margin-bottom: 40px;
+  }
+  
+  .characters-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .create-game-button, .join-game-button, .enter-id-button {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    font-size: 1.2rem;
+  }
+  
+  .create-game-button:hover, .join-game-button:hover, .enter-id-button:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
