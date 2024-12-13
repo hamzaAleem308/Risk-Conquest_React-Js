@@ -1,0 +1,480 @@
+/* DAF.css */
+
+/* General Styles */
+.daf-container {
+    position: relative;
+    width: 100vw; /* full viewport width */
+    height: 100vh; /* full viewport height */
+    background-size: cover; /* makes the background cover the entire container */
+    background-position: center; /* centers the image */
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+  }
+  
+  /* Base style for all territories */
+  .daf-container div {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.3); /* semi-transparent background */
+    border: 0px solid #333; /* subtle border */
+  }
+  
+  .daf-container div:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5); /* brighter on hover */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+  
+  /* Selected Territory Highlight */
+  .daf-container .selected {
+    border: 2px solid yellow;
+  }
+  
+  /* Use the same territory positioning as in Map.css if desired.
+     Just copy the classes defined in Map.css and reuse them here.
+     Adjust top/left/width/height to match your DAF layout if needed. */
+     .Brazil {
+        top: 368px;
+        left: 495px;
+        width: 150px;
+        height: 200px;
+      }
+      
+      .Greenland {
+        top: 30px;
+        left: 553px;
+        width: 120px;
+        height: 120px;
+      }
+      
+      .Iceland {
+        top: 113px;
+        left: 658px;
+        width: 67px;
+        height: 80px;
+      }
+      
+      .Greatbritain {
+        top: 160px;
+        left: 640px;
+        width: 60px;
+        height: 80px;
+      }
+      
+      .Scandinavia {
+        top: 97px;
+        left: 733px;
+        width: 80px;
+        height: 90px;
+      }
+      
+      .Ukraine {
+        top: 97px;
+        left: 790px;
+        width: 130px;
+        height: 90px;
+      }
+      
+      .Siberia {
+        top: 40px;
+        left: 932px;
+        width: 110px;
+        height: 90px;
+      }
+      
+      .Yakursk {
+        top: 46px;
+        left: 1005px;
+        width: 110px;
+        height: 90px;
+      }
+      
+      .Kamchatka {
+        top: 70px;
+        left: 1070px;
+        width: 128px;
+        height: 90px;
+      }
+      
+      .Irkutsk {
+        top: 127px;
+        left: 1005px;
+        width: 100px;
+        height: 90px;
+      }
+      
+      .Ural {
+        top: 70px;
+        left: 912px;
+        width: 78px;
+        height: 90px;
+      }
+      
+      .Afghanistan {
+        top: 196px;
+        left: 872px;
+        width: 103px;
+        height: 90px;
+      }
+      
+      .Middleeast {
+        top: 292px;
+        left: 796px;
+        width: 143px;
+        height: 90px;
+      }
+      
+      .India {
+        top: 283px;
+        left: 928px;
+        width: 105px;
+        height: 90px;
+      }
+      
+      .Siam {
+        top: 328px;
+        left: 1016px;
+        width: 80px;
+        height: 90px;
+      }
+      
+      .Indonesia {
+        top: 430px;
+        left: 1016px;
+        width: 100px;
+        height: 90px;
+      }
+      
+      .NewGuinea {
+        top: 410px;
+        left: 1116px;
+        width: 100px;
+        height: 90px;
+      }
+      
+      .Eastern_australia {
+        top: 495px;
+        left: 1130px;
+        width: 100px;
+        height: 90px;
+      }
+      
+      .Western_australia {
+        top: 505px;
+        left: 1050px;
+        width: 130px;
+        height: 90px;
+      }
+      
+      .China {
+        top: 215px;
+        left: 959px;
+        width: 150px;
+        height: 90px;
+      }
+      
+      .Mongolia {
+        top: 180px;
+        left: 1010px;
+        width: 114px;
+        height: 90px;
+      }
+      
+      .Japan {
+        top: 180px;
+        left: 1140px;
+        width: 60px;
+        height: 90px;
+      }
+      
+      .Northern_europe {
+        top: 180px;
+        left: 719px;
+        width: 90px;
+        height: 90px;
+      }
+      
+      .Western_europe {
+        top: 240px;
+        left: 660px;
+        width: 85px;
+        height: 90px;
+      }
+      
+      .Southernru {
+        top: 238px;
+        left: 724px;
+        width: 95px;
+        height: 90px;
+      }
+      
+      .Egypt {
+        top: 352px;
+        left: 754px;
+        width: 95px;
+        height: 90px;
+      }
+      
+      .EastAfrica {
+        top: 400px;
+        left: 795px;
+        width: 100px;
+        height: 90px;
+      }
+      
+      .Argentina {
+        top: 458px;
+        left: 512px;
+        width: 70px;
+        height: 70px;
+      }
+      
+      .SouthAfrica {
+        top: 495px;
+        left: 758px;
+        width: 100px;
+        height: 100px;
+      }
+      
+      .Congo {
+        top: 437px;
+        left: 750px;
+        width: 94px;
+        height: 85px;
+      }
+      
+      .Madagascar {
+        top: 500px;
+        left: 870px;
+        width: 70px;
+        height: 85px;
+      }
+      
+      .Northafrica {
+        top: 340px;
+        left: 680px;
+        width: 120px;
+        height: 120px;
+      }
+      
+      .Peru {
+        top: 380px;
+        left: 470px;
+        width: 110px;
+        height: 110px;
+      }
+      
+      .Alaska {
+        top: 75px;
+        left: 320px;
+        width: 100px;
+        height: 100px;
+      }
+      
+      .NorthWest {
+        top: 70px;
+        left: 398px;
+        width: 145px;
+        height: 150px;
+      }
+      
+      .Venezuela {
+        top: 344px;
+        left: 482px;
+        width: 100px;
+        height: 100px;
+      }
+      
+      .Alberta {
+        top: 130px;
+        left: 405px;
+        width: 78px;
+        height: 80px;
+      }
+      
+      .Ontario {
+        top: 132px;
+        left: 478px;
+        width: 70px;
+        height: 80px;
+      }
+      
+      .Quebec {
+        top: 125px;
+        left: 530px;
+        width: 78px;
+        height: 80px;
+      }
+      
+      .Western_united_states {
+        top: 193px;
+        left: 410px;
+        width: 83px;
+        height: 80px;
+      }
+      
+      .Eastern_united_states {
+        top: 190px;
+        left: 457px;
+        width: 130px;
+        height: 80px;
+      }
+      
+      .CentralAmerica {
+        top: 259px;
+        left: 414px;
+        width: 85px;
+        height: 80px;
+      }
+  /* Example (copying from Map.css):
+  .Brazil {
+    top: 368px;
+    left: 495px;
+    width: 150px;
+    height: 200px;
+  }
+  
+  /* Repeat for all other territories as per your layout...
+     Make sure territory class names match those in DAF.js */
+  
+  /* Players Section */
+  .players-section {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .player-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background: rgb(255, 166, 0);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .player-details p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  /* Player Turn Container */
+  .player-turn-container {
+    position: absolute;
+    bottom: 1%;
+    left: 40%;
+    border-radius: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: brown;
+    padding: 10px;
+  }
+  
+  .turn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+  }
+  
+  .turn-avatar-container {
+    margin-right: 20px;
+  }
+  
+  .turn-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+  }
+  
+  .turn-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .turn-draft-text {
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .turn-name {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+  }
+  
+  .turn-number-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Selected Region Container */
+  .selected-region-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .region-text {
+    font-size: 18px;
+    color: white;
+  }
+  
+  /* Territory Info Overlay */
+  .territory-info {
+    position: absolute;
+    top: 50%; /* Adjust based on the image */
+    left: 50%; /* Adjust based on the image */
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 5px black;
+    pointer-events: none;
+  }
+  
+  /* Image Hover Effect */
+  img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 255, 0, 0.5);
+    border-color: aliceblue;
+    border-width: 2px;
+  }
+  
+  /* Attack Lines */
+  .attack-lines {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* If needed, replicate territory positioning from Map.css here for each region:
+     .Brazil { ... }
+     .Greenland { ... }
+     ...
+     Make sure these match the classNames applied to each territory in DAF.js
+  */
+  

@@ -1,40 +1,77 @@
 /* Map.css */
 
-/* General Styles */
+/* The parent container for the whole map */
 .map-container {
   position: relative;
-  width: 100vw; /* full viewport width */
-  height: 100vh; /* full viewport height */
-  background-size: cover; /* makes the background cover the entire container */
-  background-position: center; /* centers the image */
+  width: 100vw; 
+  height: 100vh; 
+  background: aliceblue;
+  overflow: hidden; 
+  /* If you have a background map image, you can use:
+  background-image: url('/path/to/your-map.png');
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
-  background-color: aliceblue;
+  */
 }
+
+/* Remove scaling and translation */
+
 
 /* Base style for all regions */
-.map-container div {
+.map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #5597f9; /* A neutral background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* The scaled map container with a background image of the world */
+.map-scale-container {
+  position: relative;
+  width: 1200px; /* Adjust to a suitable size */
+  height: 700px; /* Adjust to a suitable size */
+
+}
+
+/* Base styling for territories */
+.territory-container {
   position: absolute;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent background */
-  border: 0px solid #333; /* subtle border */
+  /* Only position the container. Don't set width/height that force a box shape. */
+  /* No background-color or border here, let the SVG define the shape. */
 }
 
-.map-container div:hover {
+/* For the SVG shape itself */
+.territory-svg path {
+  fill: currentColor;
+}
+
+
+/* Hover effect: change fill of the SVG path to highlight the region */
+.territory-container:hover .territory-svg {
   transform: scale(1.05);
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.5); /* brighter on hover */
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  fill: rgba(255, 255, 255, 0.7);
 }
 
-/* Selected Territory Highlight */
-.map-container .selected {
-  border: 2px solid yellow;
+/* Territory info is absolutely positioned relative to the .territory-container */
+.territory-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: white;
+  pointer-events: none;
+  text-shadow: 0 0 5px black;
 }
 
-/* Territory Positions and Sizes */
-/* Updated class names to match the ones used in Map.js */
 
+/* Now manually adjust these coordinates and sizes */
+/* Add all other territories similarly with their respective top/left/width/height */
 .Brazil {
   top: 368px;
   left: 495px;
@@ -56,7 +93,7 @@
   height: 80px;
 }
 
-.GreatBritain {
+.Greatbritain {
   top: 160px;
   left: 640px;
   width: 60px;
@@ -84,7 +121,7 @@
   height: 90px;
 }
 
-.Yakutsk {
+.Yakursk {
   top: 46px;
   left: 1005px;
   width: 110px;
@@ -119,7 +156,7 @@
   height: 90px;
 }
 
-.MiddleEast {
+.Middleeast {
   top: 292px;
   left: 796px;
   width: 143px;
@@ -154,14 +191,14 @@
   height: 90px;
 }
 
-.EasternAustralia {
+.Eastern_australia {
   top: 495px;
   left: 1130px;
   width: 100px;
   height: 90px;
 }
 
-.WesternAustralia {
+.Western_australia {
   top: 505px;
   left: 1050px;
   width: 130px;
@@ -189,21 +226,21 @@
   height: 90px;
 }
 
-.NorthernEurope {
+.Northern_europe {
   top: 180px;
   left: 719px;
   width: 90px;
   height: 90px;
 }
 
-.WesternEurope {
+.Western_europe {
   top: 240px;
   left: 660px;
   width: 85px;
   height: 90px;
 }
 
-.SouthernEurope {
+.Southernru {
   top: 238px;
   left: 724px;
   width: 95px;
@@ -252,7 +289,7 @@
   height: 85px;
 }
 
-.NorthAfrica {
+.Northafrica {
   top: 340px;
   left: 680px;
   width: 120px;
@@ -273,7 +310,7 @@
   height: 100px;
 }
 
-.NorthwestTerritory {
+.NorthWest {
   top: 70px;
   left: 398px;
   width: 145px;
@@ -308,14 +345,14 @@
   height: 80px;
 }
 
-.WesternUnitedStates {
+.Western_united_states {
   top: 193px;
   left: 410px;
   width: 83px;
   height: 80px;
 }
 
-.EasternUnitedStates {
+.Eastern_united_states {
   top: 190px;
   left: 457px;
   width: 130px;
@@ -329,12 +366,17 @@
   height: 80px;
 }
 
-/* Players Section */
+
+/* Do the same for each territory: 
+   Increase width/height if needed, and carefully pick top/left values 
+   until they line up on your map as desired. */
+
+/* Players Section (unchanged) */
 .players-section {
   position: absolute;
-  top: 10%;
-  right: 10px;
-  width: 150px;
+  top: 20px;
+  right: 20px;
+  width: 200px;
   display: flex;
   flex-direction: column;
 }
@@ -343,53 +385,79 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  background: rgb(255, 166, 0);
+  background: rgba(255, 166, 0, 0.9);
   color: white;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .avatar {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .player-details p {
   margin: 0;
-  font-size: 12px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-/* Fortify Phase */
-.fortify-phase {
+/* Selected region overlay */
+.selected-region-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.8);
+  padding: 8px;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.region-text {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* Player turn container */
+.player-turn-container {
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 14px;
 }
 
-/* Territory Info Overlay */
-.territory-info {
-  position: absolute;
-  top: 50%; /* Adjust based on the image */
-  left: 50%; /* Adjust based on the image */
-  transform: translate(-50%, -50%);
-  color: white;
+.turn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0px;
+  padding: 15px;
+}
+
+.turn-avatar-container {
+  margin-right: 10px;
+}
+
+.turn-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 25px;
+}
+
+.turn-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.turn-draft-text,
+.turn-name,
+.turn-number-text {
+  margin: 5px 5px;
+  color: black;
   font-weight: bold;
-  text-shadow: 0 0 5px black;
-  pointer-events: none;
-}
-
-/* Image Hover Effect */
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 255, 0, 0.5);
-  border-color: aliceblue;
-  border-width: 2px;
+  font-size: 14px;
 }

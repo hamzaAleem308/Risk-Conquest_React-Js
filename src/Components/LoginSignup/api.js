@@ -1,4 +1,4 @@
- const baseURL = `http://192.168.0.111/Risk/api/`;
+ const baseURL = `http://localhost/Risk/api/`;
 // // export default baseURL;
 // const baseURL = process.env.NODE_ENV === 'development' 
 //   ? '/api/' 

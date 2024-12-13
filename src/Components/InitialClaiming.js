@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Map.css';
-import { useNavigate, useLocation, useParams } from 'react-router-dom'; // For getting route params
+import './InitialClaiming.css';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import baseURL from './LoginSignup/api';
 
 // Import SVGs as React components
 import { ReactComponent as EasternAustralia } from './territories/eastern_australia.svg';
@@ -45,27 +46,34 @@ import { ReactComponent as Venezuela } from './territories/venezuela.svg';
 import { ReactComponent as Peru } from './territories/peru.svg';
 import { ReactComponent as Argentina } from './territories/argentina.svg';
 import { ReactComponent as Madagascar } from './territories/madagascar.svg';
-import baseURL from './LoginSignup/api';
-// Define baseURL
-//const baseURL = 'YOUR_BACKEND_API_BASE_URL'; // Replace with your backend API base URL
+import avatar1 from './Assets/Avatars/1.png';
+import avatar2 from './Assets/Avatars/2.png';
+import avatar3 from './Assets/Avatars/3.png';
+import avatar4 from './Assets/Avatars/4.png';
+import avatar5 from './Assets/Avatars/5.png';
+import avatar6 from './Assets/Avatars/6.png';
 
-const Map = () => {
+
+
+const InitialClaiming = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = useParams();
-  const {  RoomId, players } = location.state || {};
+  const { roomId } = location.state || {};
+
   const [selectedRegion, setSelectedRegion] = useState(null);
-  const [move, setMove] = useState('Initial');
-  const [player, setPlayers] = useState([]);
+  // Change move to reflect Initial Claiming phase
+  const [move, setMove] = useState('Initial Claim');
+  const [players, setPlayers] = useState([]);
   const [currentTurnPlayer, setCurrentTurnPlayer] = useState({
     username: 'Wait',
-    Avator: 6, // Default avatar ID
+    Avator: 6,
     Color: 'white',
   });
 
   const [regions, setRegions] = useState({
-    EasternAustralia: false,
-    WesternAustralia: false,
+    Eastern_australia: false,
+    Western_australia: false,
     Indonesia: false,
     NewGuinea: false,
     Siam: false,
@@ -74,30 +82,30 @@ const Map = () => {
     Mongolia: false,
     Irkutsk: false,
     Kamchatka: false,
-    Yakutsk: false,
+    Yakursk: false,
     Siberia: false,
     Japan: false,
     Ural: false,
     Afghanistan: false,
-    MiddleEast: false,
+    Middleeast: false,
     Ukraine: false,
     Scandinavia: false,
-    NorthernEurope: false,
-    SouthernEurope: false,
-    WesternEurope: false,
-    NorthAfrica: false,
+    Northern_europe: false,
+    Southernru: false,
+    Western_europe: false,
+    Northafrica: false,
     Egypt: false,
     EastAfrica: false,
     Congo: false,
     SouthAfrica: false,
     Iceland: false,
-    GreatBritain: false,
-    NorthwestTerritory: false,
+    Greatbritain: false,
+    NorthWest: false,
     Alaska: false,
     Alberta: false,
     Ontario: false,
-    WesternUnitedStates: false,
-    EasternUnitedStates: false,
+    Western_united_states: false,
+    Eastern_united_states: false,
     Quebec: false,
     CentralAmerica: false,
     Brazil: false,
@@ -106,12 +114,11 @@ const Map = () => {
     Argentina: false,
     Madagascar: false,
     Greenland: false,
-    // Add other regions here
   });
 
   const [regions2, setRegions2] = useState({
-    EasternAustralia: { color: 'black', text: 0 },
-    WesternAustralia: { color: 'black', text: 0 },
+    Eastern_australia: { color: 'black', text: 0 },
+    Western_australia: { color: 'black', text: 0 },
     Indonesia: { color: 'black', text: 0 },
     NewGuinea: { color: 'black', text: 0 },
     Siam: { color: 'black', text: 0 },
@@ -120,30 +127,30 @@ const Map = () => {
     Mongolia: { color: 'black', text: 0 },
     Irkutsk: { color: 'black', text: 0 },
     Kamchatka: { color: 'black', text: 0 },
-    Yakutsk: { color: 'black', text: 0 },
+    Yakursk: { color: 'black', text: 0 },
     Siberia: { color: 'black', text: 0 },
     Japan: { color: 'black', text: 0 },
     Ural: { color: 'black', text: 0 },
     Afghanistan: { color: 'black', text: 0 },
-    MiddleEast: { color: 'black', text: 0 },
+    Middleeast: { color: 'black', text: 0 },
     Ukraine: { color: 'black', text: 0 },
     Scandinavia: { color: 'black', text: 0 },
-    NorthernEurope: { color: 'black', text: 0 },
-    SouthernEurope: { color: 'black', text: 0 },
-    WesternEurope: { color: 'black', text: 0 },
-    NorthAfrica: { color: 'black', text: 0 },
+    Northern_europe: { color: 'black', text: 0 },
+    Southernru: { color: 'black', text: 0 },
+    Western_europe: { color: 'black', text: 0 },
+    Northafrica: { color: 'black', text: 0 },
     Egypt: { color: 'black', text: 0 },
     EastAfrica: { color: 'black', text: 0 },
     Congo: { color: 'black', text: 0 },
     SouthAfrica: { color: 'black', text: 0 },
     Iceland: { color: 'black', text: 0 },
-    GreatBritain: { color: 'black', text: 0 },
-    NorthwestTerritory: { color: 'black', text: 0 },
+    Greatbritain: { color: 'black', text: 0 },
+    NorthWest: { color: 'black', text: 0 },
     Alaska: { color: 'black', text: 0 },
     Alberta: { color: 'black', text: 0 },
     Ontario: { color: 'black', text: 0 },
-    WesternUnitedStates: { color: 'black', text: 0 },
-    EasternUnitedStates: { color: 'black', text: 0 },
+    Western_united_states: { color: 'black', text: 0 },
+    Eastern_united_states: { color: 'black', text: 0 },
     Quebec: { color: 'black', text: 0 },
     CentralAmerica: { color: 'black', text: 0 },
     Brazil: { color: 'black', text: 0 },
@@ -152,20 +159,21 @@ const Map = () => {
     Argentina: { color: 'black', text: 0 },
     Madagascar: { color: 'black', text: 0 },
     Greenland: { color: 'black', text: 0 },
-    // Add other regions here
   });
-
+  const [regionSent, setRegionSent] = useState(false);
   useEffect(() => {
+    if(regionSent === false){
     sendRegionsToBackend();
-    // No orientation lock needed in web
-  }, []);
+    }
+  }, [regionSent]);
 
   useEffect(() => {
     fetchPlayers();
-    const intervalId = setInterval(() => {
+    let intervalId = setInterval(() => {
       fetchPlayers();
       fetchTerritory();
-    }, 1000);
+      checkAllOccupied(); // Check if all territories are claimed
+    }, 4000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -173,19 +181,19 @@ const Map = () => {
   const getAvatarImage = (avatarId) => {
     switch (avatarId) {
       case 1:
-        return '../Images/Avatar/1.png';
+        return avatar1
       case 2:
-        return '../Images/Avatar/2.png';
+        return avatar2
       case 3:
-        return '../Images/Avatar/3.png';
+        return avatar3
       case 4:
-        return '../Images/Avatar/4.png';
+        return avatar4
       case 5:
-        return '../Images/Avatar/5.png';
+        return avatar5
       case 6:
-        return '../Images/Avatar/6.png';
+        return avatar6
       default:
-        return '../Images/Create.png';
+        return './Assets/Create.png';
     }
   };
 
@@ -193,30 +201,29 @@ const Map = () => {
     try {
       const userData = localStorage.getItem('Playerid');
       let response = await fetch(
-        `${baseURL}Room/FetchingJoin_p?playerid=${userData}&roomid=${RoomId}`,
+        `${baseURL}Room/FetchingJoin_p?playerid=${userData}&roomid=${roomId}`,
         {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-          },
+          }
         }
       );
       if (response.ok) {
         let json = await response.json();
         setPlayers(json);
 
-        const player = json.find(
-          (player) =>
-            player.PlayerId === parseInt(userData) && player.pTurn === 1
+        const currentP = json.find(
+          (p) => p.PlayerId === parseInt(userData) && p.pTurn === 1
         );
-        if (player) {
-          setCurrentTurnPlayer(player);
+        if (currentP) {
+          setCurrentTurnPlayer(currentP);
         }
-        const player2 = json.find(
-          (player) => player.pTurn === 1 && player.PlayerId !== parseInt(userData)
+        const otherP = json.find(
+          (p) => p.pTurn === 1 && p.PlayerId !== parseInt(userData)
         );
-        if (player2) {
-          setCurrentTurnPlayer(player2);
+        if (otherP) {
+          setCurrentTurnPlayer(otherP);
         }
       } else {
         const errorText = await response.text();
@@ -233,7 +240,7 @@ const Map = () => {
     try {
       const regionArray = Object.keys(regions);
       const response = await fetch(
-        `${baseURL}Terrotoriy/PostRegions?roomid=${RoomId}`,
+        `${baseURL}Terrotoriy/PostRegions?roomid=${roomId}`,
         {
           method: 'POST',
           headers: {
@@ -257,7 +264,9 @@ const Map = () => {
           }
         });
         setRegions2(updatedRegions);
+        setRegionSent(true);
       } else {
+        setRegionSent(false)
         const errorText = await response.text();
         console.error('Failed:', errorText);
         alert('Error sending regions to backend');
@@ -269,37 +278,51 @@ const Map = () => {
   };
 
   const toggleRegion = async (region) => {
+    const userData = localStorage.getItem('Playerid');
+  
+    // Check if it's current player's turn
+    if (currentTurnPlayer.PlayerId !== parseInt(userData)) {
+      alert('Wait For your Turn');
+      return;
+    }
+  
+    // Deselect all other regions, then toggle the chosen one
     const newRegions = { ...regions };
-    // Reset all other regions
     for (let key in newRegions) {
       newRegions[key] = false;
     }
     newRegions[region] = !regions[region];
     setRegions(newRegions);
-
+  
     if (newRegions[region]) {
       setSelectedRegion(region);
       try {
-        const userData = localStorage.getItem('Playerid');
-        let response = await fetch(
-          `${baseURL}Terrotoriy/ClaimTerritory?playerid=${userData}&roomid=${RoomId}&territorname=${region}&color=${currentTurnPlayer.Color}`,
+        // Make the claim territory API call
+        const response = await fetch(
+          `${baseURL}Terrotoriy/ClaimTerritory?playerid=${userData}&roomid=${roomId}&territorname=${region}&color=${currentTurnPlayer.Color}`,
           {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              Accept: 'application/json',
+              'Accept': 'application/json',
             },
           }
         );
-
-        let json = await response.json();
+  
+        const json = await response.json();
+        
         if (response.ok) {
+          // The API can return strings or a list of territories
           if (json === 'Wait For your Turn') {
             alert('Wait For your Turn');
+          } else if (json === 'Territory ALready Occupied') {
+            alert('Territory Already Occupied');
           } else {
-            const apiData = json;
+            // On success, we get an array of updated territories
+            console.log('Successfully Occupied!', json);
+  
             const updatedRegions = { ...regions2 };
-            apiData.forEach((item) => {
+            json.forEach((item) => {                                                                                                                           
               const territoryName = item.TerritoryName;
               if (updatedRegions.hasOwnProperty(territoryName)) {
                 updatedRegions[territoryName] = {
@@ -311,16 +334,18 @@ const Map = () => {
             setRegions2(updatedRegions);
           }
         } else {
+          // Handle errors returned by the API
           let errorMsg = 'Failed';
           if (json === 'Player Not Found') {
             errorMsg = 'Player Not Found';
-          } else if (json === 'Room Not Found') {
+          } else if (json === 'room Not Found') {
             errorMsg = 'Room Not Found';
           } else if (json === 'Territory Already Occupied') {
             errorMsg = 'Territory Already Occupied';
           } else {
-            errorMsg = response.statusText;
+            errorMsg = response.statusText || 'Error claiming territory';
           }
+  
           console.error('Error:', errorMsg);
           alert(errorMsg);
         }
@@ -332,6 +357,7 @@ const Map = () => {
       setSelectedRegion(null);
     }
   };
+  
 
   const PlayerCard = ({ Avator, username, Rank, Color }) => {
     const avatarImage = getAvatarImage(Avator);
@@ -356,6 +382,7 @@ const Map = () => {
         <div className="turn-info-container">
           <p className="turn-draft-text">{`Move: ${move}`}</p>
           <p className="turn-name">{`Turn: ${username}`}</p>
+          {/* In initial claiming, troops per selection is typically 1 */}
           <p className="turn-number-text">Troops: 1</p>
         </div>
       </div>
@@ -365,7 +392,7 @@ const Map = () => {
   const fetchTerritory = async () => {
     try {
       const response = await fetch(
-        `${baseURL}Terrotoriy/GetPla_Territories?roomid=${RoomId}`,
+        `${baseURL}Terrotoriy/GetPla_Territories?roomid=${roomId}`,
         {
           method: 'GET',
           headers: {
@@ -390,13 +417,12 @@ const Map = () => {
         setRegions2(updatedRegions);
       } else {
         let errorMsg = 'Failed';
-        if (json === 'No Territories To Show') {
+        if (json === ' No Territories TO Show') {
           errorMsg = 'No Territories To Show';
         } else {
           errorMsg = response.statusText;
         }
         console.error('Error:', errorMsg);
-        // Optionally alert the user
       }
     } catch (error) {
       console.error('Error:', error);
@@ -404,58 +430,81 @@ const Map = () => {
     }
   };
 
-  // Mapping of territory names to SVG components
+  const checkAllOccupied = async () => {
+    try {
+      let response = await fetch(`${baseURL}Terrotoriy/Checkoccupied?roomid=${roomId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      let json = await response.json();
+      if (response.ok) {
+        if (json === 'Continue') {
+          // Still claiming
+        } else if (json === 'All territories are Occupied Moving To Next Phase') {
+          alert('All territories are Occupied. Moving To Next Phase');
+          // Navigate to DAF (next phase) - adjust route as needed
+          navigate('/daf', { state: { roomId } });
+        }
+      } else {
+        console.log(json);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const svgMap = {
-    EasternAustralia,
-    WesternAustralia,
-    Indonesia,
-    NewGuinea,
-    Siam,
-    India,
-    China,
-    Mongolia,
-    Kamchatka,
-    Irkutsk,
-    Yakutsk,
-    Siberia,
-    Japan,
-    Ural,
-    Afghanistan,
-    MiddleEast,
-    Ukraine,
-    Scandinavia,
-    SouthernEurope,
-    NorthernEurope,
-    WesternEurope,
-    NorthAfrica,
-    Egypt,
-    EastAfrica,
-    Congo,
-    SouthAfrica,
-    Iceland,
-    GreatBritain,
-    NorthwestTerritory,
-    Alaska,
-    Alberta,
-    Ontario,
-    WesternUnitedStates,
-    EasternUnitedStates,
-    Quebec,
-    CentralAmerica,
-    Brazil,
-    Venezuela,
-    Peru,
-    Argentina,
-    Madagascar,
-    Greenland,
-    // Add other territories here
+    Eastern_australia: EasternAustralia,
+    Western_australia: WesternAustralia,
+    Indonesia: Indonesia,
+    NewGuinea: NewGuinea,
+    Siam: Siam,
+    India: India,
+    China: China,
+    Mongolia: Mongolia,
+    Kamchatka: Kamchatka,
+    Irkutsk: Irkutsk,
+    Yakursk: Yakutsk,
+    Siberia: Siberia,
+    Japan: Japan,
+    Ural: Ural,
+    Afghanistan: Afghanistan,
+    Middleeast: MiddleEast,
+    Ukraine: Ukraine,
+    Scandinavia: Scandinavia,
+    Northern_europe: NorthernEurope,
+    Southernru: SouthernEurope,
+    Western_europe: WesternEurope,
+    Northafrica: NorthAfrica,
+    Egypt: Egypt,
+    EastAfrica: EastAfrica,
+    Congo: Congo,
+    SouthAfrica: SouthAfrica,
+    Iceland: Iceland,
+    Greatbritain: GreatBritain,
+    NorthWest: NorthwestTerritory,
+    Alaska: Alaska,
+    Alberta: Alberta,
+    Ontario: Ontario,
+    Western_united_states: WesternUnitedStates,
+    Eastern_united_states: EasternUnitedStates,
+    Quebec: Quebec,
+    CentralAmerica: CentralAmerica,
+    Brazil: Brazil,
+    Venezuela: Venezuela,
+    Peru: Peru,
+    Argentina: Argentina,
+    Madagascar: Madagascar,
+    Greenland: Greenland,
   };
 
   const Territory = ({ name, data, onClick }) => {
     const SvgComponent = svgMap[name];
     if (!SvgComponent) return null;
 
-    const isSelected = regions[name]; // Determine if the territory is selected
+    const isSelected = regions[name];
 
     return (
       <div
@@ -478,7 +527,6 @@ const Map = () => {
 
   return (
     <div className="map-container">
-      {/* Players Section */}
       <div className="players-section">
         {players.map((player, index) => (
           <PlayerCard
@@ -491,17 +539,40 @@ const Map = () => {
         ))}
       </div>
 
-      {/* Territories */}
-      {Object.keys(regions2).map((regionName) => (
+      {/* {Object.keys(regions2).map((regionName) => (
         <Territory
           key={regionName}
           name={regionName}
           data={regions2[regionName]}
           onClick={toggleRegion}
         />
-      ))}
+      ))} */}
+      
+      {Object.keys(regions2).map((regionName) => {
+  const data = regions2[regionName];
+  // territoryComponent is your imported SVG for this region
+  const TerritoryComponent = svgMap[regionName]; 
 
-      {/* Current Turn Player */}
+  return (
+    <div 
+      key={regionName}
+      className={`territory-container ${regionName}`} 
+      // This div is just for positioning. No widths/heights or backgrounds here.
+      style={{
+        position: 'absolute',
+        top: data.top,   // Assume data.top is a coordinate you have set
+        left: data.left, // Assume data.left is a coordinate
+      }}
+      onClick={() => toggleRegion(regionName)}
+    >
+      <TerritoryComponent style={{ color: data.color }} className="territory-svg" />
+      <div className="territory-info">{data.text}</div>
+    </div>
+  );
+})}
+
+
+
       <div className="player-turn-container">
         <PlayerTurnCard
           username={currentTurnPlayer.username}
@@ -510,7 +581,6 @@ const Map = () => {
         />
       </div>
 
-      {/* Selected Region */}
       {selectedRegion && (
         <div className="selected-region-container">
           <p className="region-text">Selected Region: {selectedRegion}</p>
@@ -520,4 +590,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default InitialClaiming;

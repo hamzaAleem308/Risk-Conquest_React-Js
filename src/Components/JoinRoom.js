@@ -211,7 +211,7 @@ const JoinRoom = () => {
 
       if (response.ok) {
         window.alert('Enjoy the game!');
-        navigate('/map1', { state: { roomId, players } });
+        navigate('/map', { state: { roomId, players } });
       } else {
         console.error(`Failed to start game: ${text}`);
         window.alert('Error: Failed to start the game');
