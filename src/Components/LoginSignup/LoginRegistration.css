@@ -1,6 +1,6 @@
 /* LoginRegistration.css */
 
-body, html {
+.login-back {
     height: 100%;
     width: 100vh;
     font-family: Arial, sans-serif;  
@@ -12,6 +12,19 @@ body, html {
     align-items: center;
     
   }
+ body, html {
+    height: 100%;
+    width: 100vh;
+    font-family: Arial, sans-serif;  
+    background-color: aquamarine;
+    /* background-image: url('/src/Components/Assets/signupimage.jpg'); */
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  } 
   
   .wrapper {
       position: relative;

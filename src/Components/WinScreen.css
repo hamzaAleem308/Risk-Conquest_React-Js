@@ -1,0 +1,61 @@
+/* Full-screen container with a gradient background */
+.win-container {
+    background: linear-gradient( #4b00ae, #722bff);
+    min-height: 100vh;
+    min-width: 500vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 20px;
+  }
+  
+  /* Overlay card with a subtle white background and shadow */
+  .win-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Win image styling */
+  .win-image {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    object-fit: contain;
+  }
+  
+  /* Win title styling */
+  .win-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Stylish Exit button */
+  .exit-button {
+    background-color: #1c92d2;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .exit-button:hover {
+    background-color: #167bb0;
+    transform: translateY(-3px);
+  }
+  
+  /* Simple fade-in animation */
+  
+  

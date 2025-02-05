@@ -20,7 +20,7 @@ const JoinRoom2 = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { RoomId } = location.state;
-
+  const { selectedMap } = location.state || {};
   useEffect(() => {
     console.log('Location state:', location.state);
     const roomIdFromState = RoomId;
@@ -79,8 +79,14 @@ const JoinRoom2 = () => {
             //window.alert('Room Not Started Yet');
             console.log('Room Not Started Yet');
           } else {
-            // Room has started, navigate to the game screen
+            if(selectedMap==='WorldMap'){
+              window.alert('Enjoy the game!');
             navigate('/map', { state: { roomId, players } });
+            }
+            else if(selectedMap==='Asia'){
+              window.alert('Enjoy the game!');
+            navigate('/mapasia', { state: { roomId, players } });
+            }
           }
       } else {
         let errorMsg = 'Failed to check room start';
@@ -252,7 +258,7 @@ const JoinRoom2 = () => {
 
   return (
     <div className="join-room">
-      <h1>Room ID: {roomId}</h1>
+      <h1>Room ID: {roomId} Map Name: {selectedMap}</h1>
       <button className="back-button" onClick={handleBack} title="Leave Room">
         ←
       </button>

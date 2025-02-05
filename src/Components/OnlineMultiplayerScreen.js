@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OnlineMultiplayerScreen.css';
 import baseURL from './LoginSignup/api';
-import multiPlayer from './Assets/risk create game.png'
+import multiPlayer from './Assets/risk create game.png';
 
 const OnlineMultiplayerScreen = () => {
+  // Existing state
   const [gameId, setGameId] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedPlayers, setSelectedPlayers] = useState(2);
+
+  // NEW state for Map Selection Modal
+  const [modalVisible3, setModalVisible3] = useState(false);
+  const [selectedMap, setSelectedMap] = useState('WorldMap');
+
   const navigate = useNavigate();
 
   const CreateRoom = async () => {
@@ -26,19 +32,23 @@ const OnlineMultiplayerScreen = () => {
         createDate: null, // using null directly
         PlayerId: storedUserInfo,
         status: 1, // hardcoded
+        map: selectedMap
       };
 
       const p = JSON.stringify(roomData);
 
       console.log('Sending Data:', p);
 
-      const response = await fetch(`${baseURL}Room/RoomCreation?id=${storedUserInfo}`, {
-        method: 'POST',
-        body: p,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(
+        `${baseURL}Room/RoomCreation?id=${storedUserInfo}`,
+        {
+          method: 'POST',
+          body: p,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
 
       console.log('Response:', response.status);
       const json = await response.json();
@@ -48,8 +58,7 @@ const OnlineMultiplayerScreen = () => {
           alert('Leave previous room before making new');
         } else {
           alert('Room created successfully');
-
-            navigate('/join-room' ,{state: {RoomId:json} });          
+          navigate('/join-room', { state: { RoomId: json , selectedMap:selectedMap} });
         }
       } else {
         let errorMsg = 'Failed';
@@ -96,11 +105,11 @@ const OnlineMultiplayerScreen = () => {
       );
 
       console.log('Response:', response.status);
-      let json = await response.text();
+      let json = await response.json();
 
       if (response.ok) {
         window.alert('Room Joined Successfully');
-        navigate('/join-room2', { state: { RoomId: gameId, isHost: false } });
+        navigate('/join-room2', { state: { RoomId: gameId, selectedMap:json.map, isHost: false } });
       } else {
         let errorMsg = 'Failed To Join Room';
         if (json === ' Room Does not Exist') {
@@ -139,8 +148,13 @@ const OnlineMultiplayerScreen = () => {
     setSelectedPlayers(num);
   };
 
-  const handleFriendsClick = () => {
-    console.log('Friends list clicked');
+  const handleLeaderboard = () => {
+    
+  };
+
+  // NEW: Handle cancellation of the map modal
+  const handleCancel3 = () => {
+    setModalVisible3(false);
   };
 
   return (
@@ -161,9 +175,14 @@ const OnlineMultiplayerScreen = () => {
           Create Game ▶
         </button>
 
+        {/* NEW: Button to open the Map Selection Modal */}
+        <button className="friends-button" onClick={() => setModalVisible3(true)}>
+          Select Map
+        </button>
+
         <div className="bottom-buttons">
-          <button className="friends-button" onClick={handleFriendsClick}>
-            Friends
+          <button className="friends-button" onClick={handleLeaderboard}>
+            Leaderboard
           </button>
           <div className="join-game-container">
             <input
@@ -180,6 +199,7 @@ const OnlineMultiplayerScreen = () => {
         </div>
       </div>
 
+      {/* Existing Modal for selecting max players */}
       {modalVisible && (
         <div className="modal">
           <div className="modal-content">
@@ -202,6 +222,37 @@ const OnlineMultiplayerScreen = () => {
                 }}
               >
                 Create
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* NEW: Map Selection Modal (converted from your React Native code) */}
+      {modalVisible3 && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Select Map</h2>
+            <div className="map-options">
+              {['WorldMap', 'Asia', 'Africa', 'Europe', 'NorthAmerica', 'SouthAmerica', 'Australia'].map((map) => (
+                <button
+                  key={map}
+                  onClick={() => setSelectedMap(map)}
+                  className={`option-button ${selectedMap === map ? 'selected-option' : ''}`}
+                >
+                  {map}
+                </button>
+              ))}
+            </div>
+            <div className="modal-actions">
+              <button onClick={handleCancel3}>Cancel</button>
+              <button
+                onClick={() => {
+                  setModalVisible3(false);
+                  console.log(`Selected Map: ${selectedMap}`);
+                }}
+              >
+                Select
               </button>
             </div>
           </div>

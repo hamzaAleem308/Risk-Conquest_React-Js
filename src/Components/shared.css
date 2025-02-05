@@ -1,0 +1,1098 @@
+/* =========================
+   share.css (Combined)
+   ========================= */
+
+/* ==================================
+   MAP.CSS STYLES
+   ================================== */
+
+/* The parent container for the whole map */
+.map-container {
+  position: relative;
+  width: 100vw; 
+  height: 100vh; 
+  /* background: rgb(0, 72, 135); */
+  overflow: hidden; 
+   background-image: url('/src/Components/Assets/mapbg.jpg'); 
+  background-size: 1537px 737px;
+  background-position: center;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sideconnection{
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 2px 2px black);
+}.sideconnection2{
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 2px 2px black);
+  transform: scaleX(-1);
+}
+.linebrazil{
+  position: absolute;
+  bottom: 280px;
+  left: 620px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+}.jap1{
+  position: absolute;
+  top: 210px;
+  right: 340px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+}.jap2{
+  position: absolute;
+  top: 165px;
+  right: 340px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(30deg);
+}.linemad1{
+  position: absolute;
+  bottom: 140px;
+  left: 790px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+}.linemad2{
+  position: absolute;
+  bottom: 190px;
+  left: 790px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(20deg);
+}.egypteu{
+  position: absolute;
+  top: 300px;
+  left: 719px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(80deg);
+}.brit1{
+  position: absolute;
+  top: 200px;
+  left: 640px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(80deg);
+}.brit5{
+  position: absolute;
+  top: 147px;
+  left: 684px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(149deg);
+}.brit2{
+  position: absolute;
+  top: 140px;
+  left: 647px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(70deg);
+}.brit3{
+  position: absolute;
+  top: 100px;
+  left: 627px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(60deg);
+}.green{
+  position: absolute;
+  top: 110px;
+  left: 677px;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(40deg);
+}.brit4{
+  position: absolute;
+  top: 180px;
+  left: 677px;
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(40deg);
+}.middleeastline{
+  position: absolute;
+  bottom: 270px;
+  left: 790px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(-20deg);
+}.lineindonesia{
+  position: absolute;
+  bottom: 170px;
+  right: 380px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(30deg);
+}.linenew{
+  position: absolute;
+  bottom: 170px;
+  right: 300px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(-85deg);
+}.newindo{
+  position: absolute;
+  bottom: 230px;
+  right: 370px;
+  width: 124px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(-30deg);
+}.westnew{
+  position: absolute;
+  bottom: 180px;
+  right: 365px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(-74deg);
+}.siamline{
+  position: absolute;
+  bottom: 270px;
+  right: 404px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 0px 1px black);
+  transform: rotate(110deg);
+}
+/* The scaled map container with a background image of the world */
+.map-scale-container {
+  position: relative;
+  width: 1200px; /* Adjust to a suitable size */
+  height: 700px; /* Adjust to a suitable size */
+}
+
+
+
+/* For the SVG shape itself */
+.territory-svg path {
+  fill: currentColor;
+}
+
+/* Hover effect: change fill of the SVG path to highlight the region */
+
+
+/* Territory info is absolutely positioned relative to the .territory-containerr */
+.territory-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  pointer-events: none;
+  text-shadow: 0px 0px 3px rgb(0, 0, 0);
+}
+
+/* ===================
+   MANUAL TERRITORY POSITIONS
+   =================== */
+
+.Brazil {
+  top: 368px;
+  left: 495px;
+  width: 150px;
+  height: 200px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Greenland {
+  top: 30px;
+  left: 553px;
+  width: 120px;
+  height: 120px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Iceland {
+  top: 113px;
+  left: 658px;
+  width: 60px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Greatbritain {
+  top: 175px;
+  left: 690px;
+  width: 37px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Scandinavia {
+  top: 97px;
+  left: 733px;
+  width: 80px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Ukraine {
+  top: 97px;
+  left: 790px;
+  width: 130px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Siberia {
+  top: 40px;
+  left: 932px;
+  width: 110px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Yakursk {
+  top: 46px;
+  left: 1005px;
+  width: 110px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Kamchatka {
+  top: 70px;
+  left: 1070px;
+  width: 128px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Irkutsk {
+  top: 127px;
+  left: 1005px;
+  width: 100px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Ural {
+  top: 70px;
+  left: 912px;
+  width: 78px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Afghanistan {
+  top: 196px;
+  left: 872px;
+  width: 103px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Middleeast {
+  top: 292px;
+  left: 796px;
+  width: 143px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.chutiya {
+  top: 283px;
+  left: 928px;
+  width: 105px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Siam {
+  top: 328px;
+  left: 1016px;
+  width: 80px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Indonesia {
+  top: 460px;
+  left: 1016px;
+  width: 66px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.NewGuinea {
+  top: 430px;
+  left: 1116px;
+  width: 70px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Eastern_australia {
+  top: 495px;
+  left: 1130px;
+  width: 100px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Western_australia {
+  top: 505px;
+  left: 1050px;
+  width: 130px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.China {
+  top: 215px;
+  left: 959px;
+  width: 150px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Mongolia {
+  top: 180px;
+  left: 1010px;
+  width: 114px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Japan {
+  top: 196px;
+  left: 1160px;
+  width: 40px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Northern_europe {
+  top: 180px;
+  left: 719px;
+  width: 90px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Western_europe {
+  top: 240px;
+  left: 660px;
+  width: 80px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Southernru {
+  top: 238px;
+  left: 724px;
+  width: 95px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Egypt {
+  top: 352px;
+  left: 754px;
+  width: 95px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.EastAfrica {
+  top: 400px;
+  left: 795px;
+  width: 100px;
+  height: 90px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Argentina {
+  top: 458px;
+  left: 512px;
+  width: 70px;
+  height: 70px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.SouthAfrica {
+  top: 495px;
+  left: 758px;
+  width: 100px;
+  height: 100px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Congo {
+  top: 437px;
+  left: 750px;
+  width: 94px;
+  height: 85px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Madagascar {
+  top: 500px;
+  left: 900px;
+  width: 40px;
+  height: 85px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Northafrica {
+  top: 340px;
+  left: 680px;
+  width: 120px;
+  height: 120px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Peru {
+  top: 380px;
+  left: 470px;
+  width: 110px;
+  height: 110px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Alaska {
+  top: 75px;
+  left: 320px;
+  width: 100px;
+  height: 100px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.NorthWest {
+  top: 70px;
+  left: 398px;
+  width: 145px;
+  height: 150px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Venezuela {
+  top: 344px;
+  left: 482px;
+  width: 100px;
+  height: 100px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+.India{
+  top: 283px;
+  left: 928px;
+  width: 105px;
+  height: 90px;
+  stroke: rgb(255, 255, 255); /* Outline color */
+  stroke-width: 2;
+}
+.Alberta {
+  top: 130px;
+  left: 405px;
+  width: 78px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Ontario {
+  top: 132px;
+  left: 478px;
+  width: 70px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Quebec {
+  top: 125px;
+  left: 530px;
+  width: 78px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Western_united_states {
+  top: 193px;
+  left: 410px;
+  width: 83px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.Eastern_united_states {
+  top: 190px;
+  left: 457px;
+  width: 130px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+.CentralAmerica {
+  top: 259px;
+  left: 414px;
+  width: 85px;
+  height: 80px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2;
+}
+
+/* Players Section */
+.players-section {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background: rgba(255, 166, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.player-details p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Selected region overlay */
+.selected-region-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.8);
+  padding: 8px;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.region-text {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  
+}
+
+/* Player turn container */
+
+
+
+
+.turn-avatar-container {
+  margin-right: 10px;
+  
+}
+
+.turn-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 25px;
+}
+
+.turn-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.turn-draft-text,
+.turn-name,
+.turn-number-text {
+  margin: 5px 5px;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  
+}
+
+/* ==================================
+   DAF.CSS STYLES
+   ================================== */
+
+/* The parent container for the whole map during the DAF phase */
+.daf-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; 
+  background-image: url('/src/Components/Assets/mapbg.jpg'); 
+  background-size: 1537px 737px;
+  background-position: center;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional scaling container if needed */
+.daf-scale-container {
+  position: relative;
+  width: 1200px;
+  height: 700px;
+}
+
+/* Territories */
+.daf-container .territory-container {
+  position: absolute;
+}
+
+.daf-container .territory-container:hover .territory-svg {
+  transform: scale(1.05);
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.territory-container {
+  position: absolute;
+}
+
+.territory-svg path {
+  fill: currentColor;
+}
+
+.territory-container:hover .territory-svg {
+  transform: scale(1.05);
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+
+
+/* DAF Phase territory positions (matching map.css) */
+/* Players Section (DAF phase) */
+.players-section {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background: rgba(255, 166, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.player-details p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Action Buttons */
+.draft-button {
+  background-color: #ff0000;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 50px;
+  left: 1300px;
+}
+.card-button {
+  background-color: #ff0000;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
+}
+
+.attack-button {
+  background-color: #ff0000;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 50px;
+  left: 1100px;
+}
+
+/* Selected region overlay (DAF) */
+.selected-region-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.8);
+  padding: 8px;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.region-text {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* Player turn container (DAF) */
+.player-turn-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  
+}
+
+.turn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  border-radius: 25px;
+  border: 2px solid #ffffff;
+  filter: drop-shadow(0px 10px 10px black);
+}
+
+
+/* Attack Lines */
+.attack-lines {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Troop Modal */
+.troop-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.troop-modal-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.troop-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.troop-bubble {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  user-select: none;
+}
+
+.close-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Custom Box (Message) */
+.custom-box {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  right: 20px;
+  background-color: #FFA07A;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.custom-box-text {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Modal overlay and container */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal title */
+.modal-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+/* Card list container (similar to cardContainer)
+   - Uses flex row, center alignment, padding, and vertical margins */
+.card-list {
+  display: flex;
+  flex-direction: row;      /* row layout */
+  align-items: center;      /* center vertically */
+  padding: 2px;             /* small padding */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  overflow-x: auto;
+}
+
+/* Each card item (similar to cardItem1)
+   - Stacks the image and text vertically and adds horizontal spacing */
+.card-item {
+  display: flex;
+  flex-direction: column;   /* stack content vertically */
+  align-items: center;      /* center horizontally */
+  margin-left: 10px;        /* horizontal spacing */
+  margin-right: 10px;
+}
+
+/* Card image styling (similar to cardImage1)
+   - Adjust width/height as needed. Here we use fixed pixel values. */
+.card-image {
+  width: 100px;             /* approximate width (or use percentage) */
+  height: 150px;            /* approximate height (or adjust as needed) */
+  object-fit: cover;
+}
+
+/* Card name styling */
+.card-name {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* Trade and Close buttons */
+.trade-button{
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.trade-button:hover,
+.close-button:hover {
+  background-color: #0056b3;
+}
+/* MapModal.css */
+
+.modalBackground2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modalContainer2 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modalTitle2 {
+  margin-bottom: 10px;
+}
+
+.scrollableModal2 {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.optionButton2 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selectedOption2 {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.modalActions2 {
+  display: flex;
+  justify-content: space-between;
+}
+.non-interactive {
+  pointer-events: none;
+} 
+
+.back-button, .emoji-button {
+  position: absolute;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './InitialClaiming.css';
+import './shared.css';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import baseURL from './LoginSignup/api';
 
@@ -52,15 +52,16 @@ import avatar3 from './Assets/Avatars/3.png';
 import avatar4 from './Assets/Avatars/4.png';
 import avatar5 from './Assets/Avatars/5.png';
 import avatar6 from './Assets/Avatars/6.png';
-
-
+import sideconnection from './Assets/longconnection.png';
+import dot from './Assets/dot.png';
 
 const InitialClaiming = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = useParams();
   const { roomId } = location.state || {};
-
+  const [showCustomBox, setShowCustomBox] = useState(false);
+    const [customBoxMessage, setCustomBoxMessage] = useState('');
   const [selectedRegion, setSelectedRegion] = useState(null);
   // Change move to reflect Initial Claiming phase
   const [move, setMove] = useState('Initial Claim');
@@ -117,53 +118,54 @@ const InitialClaiming = () => {
   });
 
   const [regions2, setRegions2] = useState({
-    Eastern_australia: { color: 'black', text: 0 },
-    Western_australia: { color: 'black', text: 0 },
-    Indonesia: { color: 'black', text: 0 },
-    NewGuinea: { color: 'black', text: 0 },
-    Siam: { color: 'black', text: 0 },
-    India: { color: 'black', text: 0 },
-    China: { color: 'black', text: 0 },
-    Mongolia: { color: 'black', text: 0 },
-    Irkutsk: { color: 'black', text: 0 },
-    Kamchatka: { color: 'black', text: 0 },
-    Yakursk: { color: 'black', text: 0 },
-    Siberia: { color: 'black', text: 0 },
-    Japan: { color: 'black', text: 0 },
-    Ural: { color: 'black', text: 0 },
-    Afghanistan: { color: 'black', text: 0 },
-    Middleeast: { color: 'black', text: 0 },
-    Ukraine: { color: 'black', text: 0 },
-    Scandinavia: { color: 'black', text: 0 },
-    Northern_europe: { color: 'black', text: 0 },
-    Southernru: { color: 'black', text: 0 },
-    Western_europe: { color: 'black', text: 0 },
-    Northafrica: { color: 'black', text: 0 },
-    Egypt: { color: 'black', text: 0 },
-    EastAfrica: { color: 'black', text: 0 },
-    Congo: { color: 'black', text: 0 },
-    SouthAfrica: { color: 'black', text: 0 },
-    Iceland: { color: 'black', text: 0 },
-    Greatbritain: { color: 'black', text: 0 },
-    NorthWest: { color: 'black', text: 0 },
-    Alaska: { color: 'black', text: 0 },
-    Alberta: { color: 'black', text: 0 },
-    Ontario: { color: 'black', text: 0 },
-    Western_united_states: { color: 'black', text: 0 },
-    Eastern_united_states: { color: 'black', text: 0 },
-    Quebec: { color: 'black', text: 0 },
-    CentralAmerica: { color: 'black', text: 0 },
-    Brazil: { color: 'black', text: 0 },
-    Venezuela: { color: 'black', text: 0 },
-    Peru: { color: 'black', text: 0 },
-    Argentina: { color: 'black', text: 0 },
-    Madagascar: { color: 'black', text: 0 },
-    Greenland: { color: 'black', text: 0 },
+    Eastern_australia: { color: 'grey', text: 0 },
+    Western_australia: { color: 'grey', text: 0 },
+    Indonesia: { color: 'grey', text: 0 },
+    NewGuinea: { color: 'grey', text: 0 },
+    Siam: { color: 'grey', text: 0 },
+    India: { color: 'grey', text: 0 },
+    China: { color: 'grey', text: 0 },
+    Mongolia: { color: 'grey', text: 0 },
+    Irkutsk: { color: 'grey', text: 0 },
+    Kamchatka: { color: 'grey', text: 0 },
+    Yakursk: { color: 'grey', text: 0 },
+    Siberia: { color: 'grey', text: 0 },
+    Japan: { color: 'grey', text: 0 },
+    Ural: { color: 'grey', text: 0 },
+    Afghanistan: { color: 'grey', text: 0 },
+    Middleeast: { color: 'grey', text: 0 },
+    Ukraine: { color: 'grey', text: 0 },
+    Scandinavia: { color: 'grey', text: 0 },
+    Northern_europe: { color: 'grey', text: 0 },
+    Southernru: { color: 'grey', text: 0 },
+    Western_europe: { color: 'grey', text: 0 },
+    Northafrica: { color: 'grey', text: 0 },
+    Egypt: { color: 'grey', text: 0 },
+    EastAfrica: { color: 'grey', text: 0 },
+    Congo: { color: 'grey', text: 0 },
+    SouthAfrica: { color: 'grey', text: 0 },
+    Iceland: { color: 'grey', text: 0 },
+    Greatbritain: { color: 'grey', text: 0 },
+    NorthWest: { color: 'grey', text: 0 },
+    Alaska: { color: 'grey', text: 0 },
+    Alberta: { color: 'grey', text: 0 },
+    Ontario: { color: 'grey', text: 0 },
+    Western_united_states: { color: 'grey', text: 0 },
+    Eastern_united_states: { color: 'grey', text: 0 },
+    Quebec: { color: 'grey', text: 0 },
+    CentralAmerica: { color: 'grey', text: 0 },
+    Brazil: { color: 'grey', text: 0 },
+    Venezuela: { color: 'grey', text: 0 },
+    Peru: { color: 'grey', text: 0 },
+    Argentina: { color: 'grey', text: 0 },
+    Madagascar: { color: 'grey', text: 0 },
+    Greenland: { color: 'grey', text: 0 },
   });
   const [regionSent, setRegionSent] = useState(false);
   useEffect(() => {
     if(regionSent === false){
     sendRegionsToBackend();
+    sendCardToBackend();
     }
   }, [regionSent]);
 
@@ -173,10 +175,12 @@ const InitialClaiming = () => {
       fetchPlayers();
       fetchTerritory();
       checkAllOccupied(); // Check if all territories are claimed
-    }, 4000);
+      LeaveRoomChecking();
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
+  
 
   const getAvatarImage = (avatarId) => {
     switch (avatarId) {
@@ -193,9 +197,82 @@ const InitialClaiming = () => {
       case 6:
         return avatar6
       default:
-        return './Assets/Create.png';
+        return '/Assets/Avatars/5.png';
     }
   };
+  
+// LeaveRoom: Sends a POST request to leave the room.
+const LeaveRoom = async () => {
+  try {
+    const userData = localStorage.getItem('Playerid');
+    const response = await fetch(
+      `${baseURL}Terrotoriy/LeaveRoom?playerId=${userData}&roomId=${roomId}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+    const json = await response.json();
+    console.log(json);
+    if (response.ok) {
+      if (json === 'You Left The Room') {
+        setCustomBoxMessage("You Left");
+        setShowCustomBox(true);
+        setTimeout(() => setShowCustomBox(false), 2000); // updated to 2000 ms
+        navigate('/lose', { state: { roomId } });
+      } else if (json === 'Player Left The Room Successfully') {
+        // No custom box message is shown here, matching the friend's logic.
+        navigate('/online-multiplayer');
+      }
+    } else {
+      const errorMessage =
+        json.message ||
+        JSON.stringify(json) ||
+        'An error occurred while leaving the room.';
+      alert('Error: ' + errorMessage);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error: ' + (error.message || 'Unexpected error.'));
+  }
+};
+
+// LeaveRoomChecking: Sends a GET request to check the room status.
+const LeaveRoomChecking = async () => {
+  try {
+    const userData = localStorage.getItem('Playerid');
+    const response = await fetch(
+      `${baseURL}Terrotoriy/LeaveRoomChecking?playerId=${userData}&roomid=${roomId}`,
+      {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+    const json = await response.json();
+    if (response.ok) {
+      if (json === 'You Won') {
+        navigate('/win', { state: { roomId } });
+      } else if (json === 'One Player Left The Room') {
+        // In the friend's code this branch is empty.
+        // Optionally, you can display a message here if needed.
+      }
+    } else {
+      const errorMessage =
+        json.message ||
+        JSON.stringify(json) ||
+        'An error occurred while checking players.';
+      alert('Error: ' + errorMessage);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error: ' + (error.message || 'Unexpected error.'));
+  }
+};
+
+// win: Sends a GET request to check if the player has won.
+
+
+// lose: Sends a GET request to check if the player has lost.
 
   const fetchPlayers = async () => {
     try {
@@ -233,6 +310,36 @@ const InitialClaiming = () => {
     } catch (error) {
       console.error('Error:', error);
       alert('Error fetching players');
+    }
+  };
+  const sendCardToBackend = async () => {
+    try {
+      // Extract only the names of the regions
+      const regionArray = Object.keys(regions).map(key => key);
+
+      const response = await fetch(`${baseURL}Terrotoriy/Cards?roomid=${roomId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(regionArray), // Send only the array of names
+      });
+      // console.log('Response status1:', response.status);
+
+
+      let json = await response.json();
+      if (response.ok) {
+         console.log(' json');  
+      }
+      else {
+        const errorText = await response.text();
+        console.error('Failed :', errorText);
+        window.alert('Error', 'Failed');
+      }
+    }
+    catch (error) {
+      console.error('Error:', error);
+      window.alert('Error', JSON.stringify(error));
     }
   };
 
@@ -440,10 +547,12 @@ const InitialClaiming = () => {
       });
       let json = await response.json();
       if (response.ok) {
+        console.log('All Not Occupied ' + json)
         if (json === 'Continue') {
           // Still claiming
         } else if (json === 'All territories are Occupied Moving To Next Phase') {
-          alert('All territories are Occupied. Moving To Next Phase');
+          console.log('All Occupied')
+          // alert('All territories are Occupied. Moving To Next Phase');
           // Navigate to DAF (next phase) - adjust route as needed
           navigate('/daf', { state: { roomId } });
         }
@@ -500,33 +609,39 @@ const InitialClaiming = () => {
     Greenland: Greenland,
   };
 
-  const Territory = ({ name, data, onClick }) => {
-    const SvgComponent = svgMap[name];
-    if (!SvgComponent) return null;
+  // const Territory = ({ name, data, onClick }) => {
+  //   const SvgComponent = svgMap[name];
+  //   if (!SvgComponent) return null;
 
-    const isSelected = regions[name];
+  //   const isSelected = regions[name];
 
-    return (
-      <div
-        className={`${name} ${isSelected ? 'selected' : ''}`}
-        onClick={() => onClick(name)}
-      >
-        <SvgComponent
-          style={{
-            width: '100%',
-            height: '100%',
-            fill: data.color,
-          }}
-        />
-        <div className="territory-info">
-          <p>{data.text}</p>
-        </div>
-      </div>
-    );
-  };
+  //   return (
+  //     <div
+  //       className={`${name} ${isSelected ? 'selected' : ''}`}
+  //       onClick={() => onClick(name)}
+  //     >
+  //       <SvgComponent
+  //         style={{
+  //           width: '100%',
+  //           height: '100%',
+  //           fill: data.color,
+  //         }}
+  //       />
+  //       <div className="territory-info">
+  //         <p>{data.text}</p>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <div className="map-container">
+            <div className="sideconnection">
+      <img src={sideconnection} alt="Side Connection" />
+      </div>
+      <div className="sideconnection2">
+      <img src={sideconnection} alt="Side Connection" />
+      </div>
       <div className="players-section">
         {players.map((player, index) => (
           <PlayerCard
@@ -539,6 +654,87 @@ const InitialClaiming = () => {
         ))}
       </div>
 
+      <div>
+      <img
+        src={dot}
+        alt="Second image"
+        className="linebrazil"
+      />
+      <img
+        src={dot}
+        alt="Second image"
+        className="linemad1"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="brit1"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="brit2"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="brit3"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="brit4"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="egypteu"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="brit5"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="green"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="jap1"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="jap2"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="linemad2"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="middleeastline"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="lineindonesia"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="siamline"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="linenew"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="newindo"
+      /><img
+        src={dot}
+        alt="Second image"
+        className="westnew"
+      />
+      </div>
+      <div>
+        <button onClick={LeaveRoom} className="back-button">
+        ←
+        </button>
+      </div>
       {/* {Object.keys(regions2).map((regionName) => (
         <Territory
           key={regionName}
